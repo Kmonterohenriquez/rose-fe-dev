@@ -14,8 +14,8 @@ function Expressions() {
   const [username, setUsername] = useState("");
   const [feedback, setFeedback] = useState("");
 
-  const getResult = () => {
-    axios
+  const getResult = async() => {
+    await axios
       .get(`http://api.mathjs.org/v4/?expr=${expressionURL}`)
       .then((res) => {
         setResult(res.data);
