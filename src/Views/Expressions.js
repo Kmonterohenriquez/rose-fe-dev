@@ -10,11 +10,42 @@ function Expressions() {
   const [expressionURL, setExpressionURL] = useState("");
   const [userInput, setUserInput] = useState(undefined);
   const [result, setResult] = useState(0);
-  const [showMessageToggle, setShowMessageToggle] = useState(true);
+  const [showMessageToggle, setShowMessageToggle] = useState(false);
   const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    getNewExpression();
+    setUsername(localStorage.getItem("username"));
+  }, []);
+
+  // Fire assignOperator function if operator variable changes
+  useEffect(() => {
+    assignOperator();
+    handleMessage();
+  }, [operator, result]);
+
+  const assignOperator = () => {
+    switch (operator) {
+      case "+":
+        setExpressionURL(`${firstInt}%2B${secondInt}`);
+        break;
+      case "-":
+        setExpressionURL(`${firstInt}-${secondInt}`);
+        break;
+      case "*":
+        setExpressionURL(`${firstInt}*${secondInt}`);
+        break;
+      case "/":
+        setExpressionURL(`${firstInt}%2F${secondInt}`);
+        break;
+      default:
+        break;
+    }
+  };
+
   const [feedback, setFeedback] = useState("");
 
-  const getResult = async() => {
+  const getResult = async () => {
     await axios
       .get(`http://api.mathjs.org/v4/?expr=${expressionURL}`)
       .then((res) => {
@@ -44,38 +75,12 @@ function Expressions() {
     return operators[randomOperator];
   };
 
-  function getNewExpression() {
+  const getNewExpression = () => {
     setFirstInt(generateRandomInt());
     setSecondInt(generateRandomInt());
     setOperator(generateRamdonOperator());
     setUserInput("");
-  }
-
-  useEffect(() => {
-    getNewExpression();
-    setUsername(localStorage.getItem("username"));
-  }, []);
-
-  // Fire assignOperator function if operator variable changes
-  useEffect(() => {
-    switch (operator) {
-      case "+":
-        setExpressionURL(`${firstInt}%2B${secondInt}`);
-        break;
-      case "-":
-        setExpressionURL(`${firstInt}-${secondInt}`);
-        break;
-      case "*":
-        setExpressionURL(`${firstInt}*${secondInt}`);
-        break;
-      case "/":
-        setExpressionURL(`${firstInt}%2F${secondInt}`);
-        break;
-      default:
-        break;
-    }
-    handleMessage();
-  }, [operator, result]);
+  };
 
   const expressionToSolve = `${firstInt}${operator}${secondInt}=`;
 

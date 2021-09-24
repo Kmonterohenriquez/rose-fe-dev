@@ -29,7 +29,14 @@ Steps to install this web application:
     npm run start
 ```
 
+# How to use it
+After starting MathExpressions website follow this steps to use it: 
+1. Click Start button
 
+2. Enter student's name
+
+3. Start practicing your math skills
+   
 
 # Design
 
