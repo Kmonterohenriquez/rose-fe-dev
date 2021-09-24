@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@800&display=swap')
+@import ../App
+
+.Home 
+    #header 
+        padding: 20px 0
+        display: flex
+        align-items: center
+        justify-content: space-between
+    #logo
+        height: 50px
+
+    nav
+        ul 
+            display: flex
+            li 
+                cursor: pointer
+                list-style:  none
+                padding: 10px 20px
+                font-size: 1.2rem
+
+    .info-container
+        display: flex
+        height: calc(100vh - 90px)
+        justify-content: center 
+        flex-direction: column
+
+        h1 
+            color: $primary-color
+            line-height: 5.5rem
+            font-size: 5rem
+            font-weight: bolder
+            font-family: 'M PLUS Rounded 1c', sans-serif
+        
+        p 
+            color: #576366
+            margin-bottom: 50px
+            font-size: 25px
+            margin: 20px 0 60px 0
+
+        button
+            cursor: pointer
+            display: flex 
+            align-items: center
+            justify-content: center
+            color: white
+            font-weight: bolder
+            font-size: 2rem
+            background: $primary-color
+            border: none 
+            border-radius: 10px
+            padding: 15px  
+            width: 300px
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+            transition: background .5s
+
+            &:hover 
+                background: darken($primary-color, 10%)
+            img 
+                height: 30px
+                margin-right: 8px
+
+        
+.overlay 
+    position: absolute 
+    width: 35% 
+    height: 100%
+    background: red
+    background: $secondary-color
+    right: 0
+    bottom: 0
+    z-index: -1

@@ -1,0 +1,21 @@
+// Import font from google fonts
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap')
+
+// Colors
+$primary-color: #0478FA
+$secondary-color: rgb(236,237,241)
+* 
+    padding: 0
+    margin: 0
+    font-family: 'Varela Round', sans-serif
+
+.App 
+    position: relative
+
+@mixin container($max-width)
+    margin: 0 auto
+    widht: 90%
+    max-width: $max-width
+
+.md-container 
+    @include container(1200px)
