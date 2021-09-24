@@ -12,18 +12,21 @@
  - React
  - MathJS
 
+# Installation
+Steps to install this web application:
+ 
 
 # Design 
 Multiples views were designed using Figma for a better UI/UX and then transformed to code, here are some examples of its design: 
 
-## Home
-![MathExpressions design 1](./src/img/design-1.png)
+##  Home
+<img src="./src/img/design-1.png" width="400" >
 
 ## Login 
-![MathExpressions design 3](./src/img/design-3.png)
+<img src="./src/img/design-3.png" width="400">
 
 ## Exercise  
-![MathExpressions design 4](./src/img/design-4.png)
+<img src="./src/img/design-4.png" width="400">
 
 
 
