@@ -18,6 +18,18 @@ There are multiple dependencies required to run this web application, such as:
 
 Steps to install this web application:
 
+**Step 1**: install all depencies listed in ``Package.json``
+
+```
+    npm install
+```
+
+**Step 2**: run the web application
+```
+    npm run start
+```
+
+
 
 # Design
 
