@@ -1,7 +1,7 @@
 # MathExpressions
 
 **MathExpressions** is a small platform which is created for kids in second grade to master their math skills in a easy and efficient way.
-This application will be quite simple; it will consist of a single question, a text box for the student to provide a response, and a submit button which will give a feedback message to the user if they passed or not.
+This application will be quite simple; it will consist of a single question, a text box for the student to provide a response, and a submit button which will provide a feedback message to the user if they passed or not.
 
 ![MathExpressions design 1](./src/img/design-1.png)
 
