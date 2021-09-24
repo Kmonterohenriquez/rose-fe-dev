@@ -22,9 +22,9 @@ function Expressions() {
   useEffect(() => {
     assignOperator();
     handleMessage();
-  }, [operator, result]);
+  }, [operator, result, firstInt, secondInt]);
 
-  const assignOperator = () => {
+  const assignOperator = async () => {
     switch (operator) {
       case "+":
         setExpressionURL(`${firstInt}%2B${secondInt}`);
