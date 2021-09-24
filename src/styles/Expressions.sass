@@ -52,17 +52,21 @@
         display: flex 
         justify-content: center
         align-items: center
-        // margin-bottom: 20px
         padding: 20px
 
     #tryAnother, #submit 
         width: 100%
         padding: 15px 20px
-        margin-right: 10px 
         cursor: pointer
-        border-radius: 10px
         border-style: none
+        border-radius: 10px
         font-size: 1rem
+        transition: background .5s
+
+    #tryAnother 
+        margin-right: 10px 
+        &:hover 
+            background: darken($secondary-color, 10% )
 
     #submit
         background: $primary-color

@@ -4,33 +4,15 @@ import { useEffect, useState } from "react";
 import Message from "../components/Message.js";
 
 function Expressions() {
-  // const [name, setName]= useState("Kevin");
   const [firstInt, setFirstInt] = useState(0);
   const [secondInt, setSecondInt] = useState(0);
   const [operator, setOperator] = useState("");
   const [expressionURL, setExpressionURL] = useState("");
   const [userInput, setUserInput] = useState(undefined);
   const [result, setResult] = useState(0);
-  const [showMessageToggle, setShowMessageToggle] = useState(false);
+  const [showMessageToggle, setShowMessageToggle] = useState(true);
   const [username, setUsername] = useState("");
   const [feedback, setFeedback] = useState("");
-
-  const assignOperator = () => {
-    switch (operator) {
-      case "+":
-        setExpressionURL(`${firstInt}%2B${secondInt}`);
-        break;
-      case "-":
-        setExpressionURL(`${firstInt}-${secondInt}`);
-        break;
-      case "*":
-        setExpressionURL(`${firstInt}*${secondInt}`);
-        break;
-      case "/":
-        setExpressionURL(`${firstInt}%2F${secondInt}`);
-        break;
-    }
-  };
 
   const getResult = () => {
     axios
@@ -62,12 +44,12 @@ function Expressions() {
     return operators[randomOperator];
   };
 
-  const getNewExpression = () => {
+  function getNewExpression() {
     setFirstInt(generateRandomInt());
     setSecondInt(generateRandomInt());
     setOperator(generateRamdonOperator());
-    setUserInput("")
-  };
+    setUserInput("");
+  }
 
   useEffect(() => {
     getNewExpression();
@@ -76,7 +58,22 @@ function Expressions() {
 
   // Fire assignOperator function if operator variable changes
   useEffect(() => {
-    assignOperator();
+    switch (operator) {
+      case "+":
+        setExpressionURL(`${firstInt}%2B${secondInt}`);
+        break;
+      case "-":
+        setExpressionURL(`${firstInt}-${secondInt}`);
+        break;
+      case "*":
+        setExpressionURL(`${firstInt}*${secondInt}`);
+        break;
+      case "/":
+        setExpressionURL(`${firstInt}%2F${secondInt}`);
+        break;
+      default:
+        break;
+    }
     handleMessage();
   }, [operator, result]);
 
@@ -97,14 +94,19 @@ function Expressions() {
           />
         </div>
         <div className="buttons-container">
-          <button id="tryAnother"onClick={() => getNewExpression()}>Try another</button>
-          <button id="submit" onClick={() => getResult()}>Submit</button>
+          <button id="tryAnother" onClick={getNewExpression}>
+            Try another
+          </button>
+          <button id="submit" onClick={() => getResult()}>
+            Submit
+          </button>
         </div>
       </div>
       {showMessageToggle && (
         <Message
           feedback={feedback}
-          // handleShowMessageToggle={handleShowMessageToggle}
+          setShowMessageToggle={setShowMessageToggle}
+          getNewExpression={getNewExpression}
           result={result}
         />
       )}

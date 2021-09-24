@@ -1,6 +1,7 @@
 {
   "name": "rose-fe-dev",
   "author": "Kevin Montero",
+  "description": "MathExpressions is a small platform which is created for kids in second grade to master their math skills in a easy and efficient way.",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

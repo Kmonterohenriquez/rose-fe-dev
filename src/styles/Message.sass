@@ -1,0 +1,57 @@
+@import ../App
+.Message
+    position: absolute
+    right: 0 
+    top: 0
+    height: 100vh
+    width: 100%
+    display: flex
+    justify-content: center 
+    align-items: center 
+    flex-direction: column
+    background: rgba(0, 0, 0, 0.7)
+    transition: background 0.5s
+
+    &-container
+        display: flex
+        justify-content: center 
+        align-items: center 
+        flex-direction: column
+        background: white 
+        height: 300px 
+        width: 400px
+        border-radius: 10px
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+
+        .button-container 
+            display: flex 
+            justify-content: center
+
+        
+        #try-again-btn, #continue-btn 
+            width: 150px
+            padding: 10px 20px
+            cursor: pointer
+            border-radius: 10px
+            border-style: none
+            font-size: 1rem
+            transition: background .5s
+
+
+        #try-again-btn
+            margin-right: 10px
+            &:hover 
+                background: darken($secondary-color, 10% )
+
+        #continue-btn
+            background: $primary-color
+            color: white
+            &:hover 
+                background: darken($primary-color, 10% )
+
+        img 
+            height: 70px
+            margin-bottom: 15px
+
+        p
+            margin-bottom: 15px
