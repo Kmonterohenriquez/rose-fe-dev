@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react";
 import "../styles/Message.sass";
 import passed from "../img/passed.png";
 import failed from "../img/failed.png";
+import PropTypes from "prop-types";
 
 let useClickOutside = (handler) => {
   let domNode = useRef();
@@ -23,24 +24,19 @@ let useClickOutside = (handler) => {
   return domNode;
 };
 
-const Message = ({
-  feedback,
-  setShowMessageToggle,
-  getNewExpression,
-  result,
-}) => {
+const Message = ({ feedback, setShowMessageToggle, getNewExpression }) => {
   const handleContinueBtn = () => {
     setShowMessageToggle(false);
     getNewExpression();
   };
 
   let domNode = useClickOutside(() => {
-    setShowMessageToggle(false)
+    setShowMessageToggle(false);
   });
 
   return (
     <div className="Message">
-      <div className="Message-container" ref={domNode} >
+      <div className="Message-container" ref={domNode}>
         <img src={feedback === "Passed" ? passed : failed} alt="" />
         <p>
           {feedback === "Passed" ? "Congratulation! you passed" : "You failed"}
@@ -59,6 +55,12 @@ const Message = ({
       </div>
     </div>
   );
+};
+
+Message.propTypes = {
+  feedback: PropTypes.string.isRequired,
+  setShowMessageToggle: PropTypes.bool.isRequired,
+  getNewExpression: PropTypes.func.isRequired,
 };
 
 export default Message;

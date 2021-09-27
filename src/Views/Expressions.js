@@ -8,7 +8,7 @@ function Expressions() {
   const [secondInt, setSecondInt] = useState(0);
   const [operator, setOperator] = useState("");
   const [expressionURL, setExpressionURL] = useState("");
-  const [userInput, setUserInput] = useState(undefined);
+  const [userInput, setUserInput] = useState("");
   const [result, setResult] = useState(0);
   const [showMessageToggle, setShowMessageToggle] = useState(false);
   const [username, setUsername] = useState("");
@@ -20,11 +20,6 @@ function Expressions() {
 
   // Fire assignOperator function if operator variable changes
   useEffect(() => {
-    assignOperator();
-    handleMessage();
-  }, [operator, result, firstInt, secondInt]);
-
-  const assignOperator = async () => {
     switch (operator) {
       case "+":
         setExpressionURL(`${firstInt}%2B${secondInt}`);
@@ -41,7 +36,8 @@ function Expressions() {
       default:
         break;
     }
-  };
+    handleMessage()
+  }, [operator, result, firstInt, secondInt]);
 
   const [feedback, setFeedback] = useState("");
 
