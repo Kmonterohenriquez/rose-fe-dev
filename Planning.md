@@ -22,7 +22,7 @@ Step 3: <br>
 
 - Locale storage was used to simulate a backend functionality for authentification.
 
-# Ideas for new Ffeatures
+# Ideas for new features
 
 - Maintaining a history of questions
   A function with one parameter can be create in App.js file to push every new questions in an array and pass down that function into ``<Expressions />`` component as a prop, for example:
