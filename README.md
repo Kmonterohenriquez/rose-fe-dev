@@ -6,7 +6,7 @@ This application will be quite simple; it will consist of a single question, a t
 ![MathExpressions design 1](./src/img/design-1.png)
 
 # Technology
-There are multiple dependencies required to run this web application, such as:
+There are multiple technologies used on this web application, such as:
 
 - Axios
 - react-router-dom
